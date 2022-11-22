@@ -25,12 +25,9 @@ Code for CCF competition ["Criminal remission time prediction"](https://www.data
 Currently, best result comes with following arguments：
 
 1. Bert Model: `hfl/chinese-roberta-wwm-ext-large`
-2. Input max_length: 512 (truncate and paddle enabled)
+2. Input max_length: 512 (**tail truncate** and paddle enabled)
 3. Batch_size: 8
 4. Learning_rate: 2e-5
 5. Weight_decay: 0.01
-6. Training_epoch: 50
-7. Metric: $FinalScore = \sum_{i=1}^{N}Score_{i} \times 0.7 + ExtAcc \times 0.3$
-8. **Clip First Sentence**
-
-**TODO**: Bert is not able to accept text longer than 510 words, clipping out the first sentence is not enough. 
+6. Training_epoch: 50 (early_stopping 10, best at 44)
+7. Metric: $FinalScore = \sum_{i=1}^{N}Score_{i} \times 0.7 + ExtAcc \times 0.3$, best at 6547.25
